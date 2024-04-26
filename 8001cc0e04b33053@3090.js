@@ -1,4 +1,5 @@
 function _1(md){return(
+md`<h1 style="display: none;">Bar Chart Race</h1>
 md`
 
 # Bar Chart Race
