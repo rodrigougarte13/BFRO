@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFRO D3 Visualization N2</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .legend-table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-left: 0;
+            margin-right: 0; /* Center the table */
+        }
+        .legend-table td, 
+        .legend-table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .legend-table tr:nth-child(even){background-color: #f2f2f2;}
+        .legend-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .legend-color {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        #info-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #info-table th, #info-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #info-table th {
+            background-color: #f2f2f2;
+        }
+
+        #info-table tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>BFRO D3 Visualization N2: Number of sightings per N# of witnesses and type of report</h1>
+    <div id="visualization" style="width:70%; float: left;"></div>
+    <div id="info-section" style="width:30%; float: right;">
+        
+    <!-- Legend Table -->
+    
+        <table class="legend-table">
+            <tr>
+                <th>Color</th>
+                <th>Class</th>
+            </tr>
+            <tr>
+                <td><div class="legend-color" style="background-color: #49e41a;"></div></td>
+                <td>Class A</td>
+            </tr>
+            <tr>
+                <td><div class="legend-color" style="background-color: #e4bf1a;"></div></td>
+                <td>Class B</td>
+            </tr>
+            <tr>
+                <td><div class="legend-color" style="background-color: #e41a1c;"></div></td>
+                <td>Class C</td>
+            </tr>
+        </table>
+        <svg id="pie-chart" width="400" height="400"></svg>
+
+        
+        
+    </div>
+    
+    <script src="script2.js"></script>
+    
+    <div class="tooltip" style="opacity:0; position: absolute; pointer-events: none; background-color: white; border: 1px solid black; padding: 0px;"></div>
+
+    <footer style="text-align: center; margin: 20px 0; cursor: pointer; transition: background-color 0.2s">
+        <button onclick="goBack()" class="button">
+            Go Back
+        </button>
+    </footer>
+
+    <script>
+        function goBack() { window.history.back(); }
+    </script>
+</body>
+</html>

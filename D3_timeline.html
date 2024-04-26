@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFRO D3 Visualization N1</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <style>
+        .slider {
+            width: 45%; 
+        }
+        #map {
+            width: 960px; 
+            height: 600px; 
+        }
+       
+    </style>
+</head>
+<body>
+<h1>BFRO D3 Visualization N1: Sightings over time along National Parks Foundations</h1>
+<div id="map"></div>
+<label for="yearSlider">Year: </label>
+<input type="range" id="yearSlider" class="slider" min="1900" max="2023" value="2023">
+
+<div class="tooltip"></div>
+
+<script src="script1.js"></script> 
+
+<footer style="text-align: center; margin: 20px 0; cursor: pointer; transition: background-color 0.2s">
+    <button onclick="goBack()" class="button">
+        Go Back
+    </button>
+</footer>
+
+<script>
+    function goBack() { window.history.back(); }
+</script>
+</body>
+</html>
