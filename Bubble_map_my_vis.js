@@ -41,7 +41,7 @@ d3.select(".legend")
             .attr("d", path);
         
         // Now load the park visitation data
-        d3.json("bubb_json_final_merged_data.json").then(function(data) {
+        d3.json("/BFRO/bubb_json_final_merged_data.json").then(function(data) {
             // Define a color scale for the "count" - adjust domain as per your data range
             // Define a color scale for the "count" - adjust domain as per your data range
 // Define a color scale for the "count" - adjust domain as per your data range
