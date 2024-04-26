@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const height = +svg.attr("height");
     const path = d3.geoPath();
     const projection = d3.geoAlbersUsa().translate([width / 2, height / 2]).scale(width * 1.2);
-
+    
     // Define the title text
     const titleText = "US Map with Park Visitation";
 
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .attr("stroke-linejoin", "round")
             .attr("d", path);
         
-        // Now load the park visitation data
-        d3.json("/BFRO/bubb_json_final_merged_data.json").then(function(data) {
+        // Now load the park visitation data from raw.githubusercontent.com
+        d3.json("https://raw.githubusercontent.com/rodrigougarte13/BFRO/main/bubb_json_final_merged_data.json").then(function(data) {
             // Define a color scale for the "count" - adjust domain as per your data range
             const color = d3.scaleSequential(d3.interpolateReds)
                 .domain([0, d3.max(data, d => d.count)]);
@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 .attr("cx", d => projection([d.longitude, d.latitude])[0])
                 .attr("cy", d => projection([d.longitude, d.latitude])[1])
                 .attr("r", d => Math.sqrt(d.visitor_count) / 100)
-                .attr("fill", d => color(d.count)) // Use color scale for fill
+                .attr("fill", d => color(d.count))
                 .attr("stroke", "black")
                 .attr("stroke-width", 1)
                 .attr("opacity", 0.75)
-                .append("title") // Tooltip to show information on hover
+                .append("title")
                 .text(d => `${d.park_name}: ${d.visitor_count} visitors (${d.count} count)`);
         }).catch(error => console.error('Error loading or processing visitation data:', error));
     }).catch(error => console.error('Error loading or processing map data:', error));
