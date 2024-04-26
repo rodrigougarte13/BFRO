@@ -4,24 +4,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const height = +svg.attr("height");
     const path = d3.geoPath();
     const projection = d3.geoAlbersUsa().translate([width / 2, height / 2]).scale(width * 1.2);
-// Define the title text
-const titleText = "US Map with Park Visitation";
 
-// Append the title to the SVG
-svg.append("text")
-    .attr("x", width / 2)
-    .attr("y", 30)
-    .attr("text-anchor", "middle")
-    .attr("font-size", "24px")
-    .text(titleText);
+    // Define the title text
+    const titleText = "US Map with Park Visitation";
 
-// Define the legend
-const legendText = "Visitor Count";
+    // Append the title to the SVG
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", 30)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "24px")
+        .text(titleText);
 
-// Append the legend to the div with the class "legend"
-d3.select(".legend")
-    .append("p")
-    .text(legendText);
+    // Define the legend
+    const legendText = "Visitor Count";
+
+    // Append the legend to the div with the class "legend"
+    d3.select(".legend")
+        .append("p")
+        .text(legendText);
 
     // Load the GeoJSON data for the map
     d3.json("https://d3js.org/us-10m.v1.json").then(function(us) {
@@ -43,14 +44,9 @@ d3.select(".legend")
         // Now load the park visitation data
         d3.json("/BFRO/bubb_json_final_merged_data.json").then(function(data) {
             // Define a color scale for the "count" - adjust domain as per your data range
-            // Define a color scale for the "count" - adjust domain as per your data range
-// Define a color scale for the "count" - adjust domain as per your data range
-const color = d3.scaleSequential(d3.interpolateReds)
-    .domain([0, d3.max(data, d => d.count)]);
+            const color = d3.scaleSequential(d3.interpolateReds)
+                .domain([0, d3.max(data, d => d.count)]);
 
-
-
-            
             svg.append("g")
                 .selectAll("circle")
                 .data(data)
