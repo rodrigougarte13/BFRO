@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Sequences Sunburst</title>
-<link rel="stylesheet" type="text/css" href="./inspector_s.css">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sequences Sunburst</title>
+    <link rel="stylesheet" type="text/css" href="./inspector_s.css">
+</head>
 <body>
-<script type="module">
+    <footer style="text-align: center; margin: 20px 0; cursor: pointer; transition: background-color 0.2s">
+        <button onclick="goBack()" class="button">
+            Go Back
+        </button>
+    </footer>
 
-import define from "./index_s.js";
-import {Runtime, Library, Inspector} from "./runtime_s.js";
+    <script>
+        function goBack() { window.history.back(); }
+    </script>
 
-const runtime = new Runtime();
-const main = runtime.module(define, Inspector.into(document.body));
+    <script type="module">
+        import define from "./index_s.js";
+        import {Runtime, Library, Inspector} from "./runtime_s.js";
 
-</script>
+        const runtime = new Runtime();
+        const main = runtime.module(define, Inspector.into(document.body));
+    </script>
+</body>
+</html>
+
