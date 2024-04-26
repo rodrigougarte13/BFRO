@@ -1,0 +1,14 @@
+{
+  "name": "8001cc0e04b33053",
+  "main": "8001cc0e04b33053@3090.js",
+  "version": "3090.0.0",
+  "homepage": "https://observablehq.com/d/8001cc0e04b33053",
+  "author": {
+    "name": "DSCI550",
+    "url": "https://observablehq.com/@dsci550-team6-hw3-sequencesunburst"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
