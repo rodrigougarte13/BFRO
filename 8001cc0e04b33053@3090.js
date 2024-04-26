@@ -7,7 +7,7 @@ This chart animates the occurrence of each object detected by Tika from 1793 to 
 )}
 
 function _data(FileAttachment){return(
-FileAttachment("barChartDFv2.csv").csv({typed: true})
+FileAttachment("80c24367afb6faaf190976499ff98bfa5d1cf201bca106b54dd3f582aeec9c3791eaeabb841d43de58d5c916fdd2a768f8e9cabac48d3c110b6f85d21c50f791.csv").csv({typed: true})
 )}
 
 function _replay(html){return(
